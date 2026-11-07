@@ -1,7 +1,7 @@
 const CONFIG = {
   server_url: "https://dummyjson.com/users",
   num_items: 30,  
-  use_server: true,
+  use_server: false,
   loading_timeout_ms: 300
 }
 
