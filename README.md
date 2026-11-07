@@ -3,5 +3,7 @@ Paso 0: En primer lugar descargamos la base del proyecto y lo dejamos preparado 
 
 Paso 1: En este paso creamos el componente Header y añadimos el input para los usarios que queremos buscar y lo hacemos un componente controlado para cada vez que escribamos algo se repinte (con el estado y el onChange).    
 
-Paso 2: Hemos creado el componente resultados el cuál solo lo vamos a mostrar/renderizar si existen resultados. Antes de bajarnos datos del servidor usamos unos datos de prueba para comprobar que la funcionalidad es la correcta. Como queremos que cada vez que cambien nuestros usuarios buscados repintarlos, creamos el estado resultados que hará que el componente resultados se repinte con los usuarios correspondintes.
+Paso 2: Hemos creado el componente resultados el cuál solo lo vamos a mostrar/renderizar si existen resultados. Antes de bajarnos datos del servidor usamos unos datos de prueba para comprobar que la funcionalidad es la correcta. Como queremos que cada vez que cambien nuestros usuarios buscados repintarlos, creamos el estado resultados que hará que el componente resultados se repinte con los usuarios correspondintes.   
+
+Paso 3: Hay que mirar siempre que datos nos traemos. En eset caso data no es un array de users, sino que es un json por lo que tenemos que tomar la propiedad users para obtener el array y ya asi pintarlo correctamente en resultados.
 

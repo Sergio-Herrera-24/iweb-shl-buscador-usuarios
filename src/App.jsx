@@ -9,10 +9,17 @@ function App() {
   const [textoinput, setTexto] = useState("")
   const [resultado, setResultado] = useState(null)
 
-  function manejarBuscar(){
+  async function manejarBuscar(){
     if(!CONFIG.use_server){
       setResultado(mock1.users)
+      return
     }
+    console.log("Llamando al servidor...")
+    let query = CONFIG.server_url
+    const response = await fetch(query)
+    const data = await response.json()
+    console.log(data)
+    setResultado(data.users)
   }
 
   return (
