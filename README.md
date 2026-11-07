@@ -9,3 +9,5 @@ Paso 3: Hay que mirar siempre que datos nos traemos. En este caso data no es un 
 
 Paso 4: Tenemos ahora 2 botones. En uno de ellos queremos que se traiga todos los usuarios de la API hasta el límite que tenemos en config y en el otroq ueremos que se traiga solo los que coincidan con lo que ha puesto el usario en el input. Para ellos podemos usar la misma función usando prámetros para distinguir que query usar dependiendo de qué boton se ha puslado y traernos unos usuarios u otros. (Una variable let solo existe dentro de el bloque {} en el que se ha creado)
 
+Paso 5: Vamos a tratar los errores y mostrarselo al usuario. Esto lo hacemos mediante un estado y si tenemos error mostramos el error y no los resultados pero si no tenemos error solo mostramos los resultados.
+También vamos a transformar el input y el boton buscar a un formulario. Al formulario para props hay que pasarle todo lo que necesita en este caso necesita el estado del texto, la función setTexto y la función manejarBuscar para que las pueda llamar ese componente inferior pero la lógica se aplica toda en App.

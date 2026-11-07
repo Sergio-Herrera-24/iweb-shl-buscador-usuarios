@@ -1,42 +1,200 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* ==========================================================================
+   Estilos Generales y Centrado Absoluto
+   ========================================================================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;     /* Centrado vertical */
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+#main {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem 1rem;
   padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#buscador {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ==========================================================================
+   Componente: Header (#cabecera)
+   ========================================================================== */
+#cabecera {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #eaeded;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+#cabecera .logo {
+  width: 50px;
+  height: auto;
+  object-fit: contain;
 }
 
-.card {
-  padding: 2em;
+#cabecera .mensaje {
+  font-size: 1.4rem;
+  color: #16a085;
+  margin: 0;
 }
 
-.read-the-docs {
-  color: #888;
+/* ==========================================================================
+   Componente: Formulario e Inputs
+   ========================================================================== */
+#formulario {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#query {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #bdc3c7;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#query:focus {
+  border-color: #3498db;
+}
+
+/* Botones */
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+#botonsearch {
+  background-color: #3498db;
+  color: white;
+}
+
+#botonsearch:hover {
+  background-color: #2980b9;
+}
+
+#botonall {
+  background-color: #2ecc71;
+  color: white;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+#botonall:hover {
+  background-color: #27ae60;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Componente: Resultados (#resultado)
+   ========================================================================== */
+#resultado {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+#resultado li {
+  background-color: #fdfdfd;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#resultado li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+#resultado li img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #eaeded;
+  margin-bottom: 1rem;
+  order: -1; /* Mueve la imagen arriba del texto */
+  border: 3px solid #f0f4f8;
+}
+
+#resultado li p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+  color: #4a5568;
+  word-break: break-all;
+}
+
+#resultado li p:first-of-type {
+  font-weight: bold;
+  color: #2d3748;
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   Estados: Errores
+   ========================================================================== */
+#error {
+  width: 100%;
+  max-width: 500px;
+  background-color: #fff5f5;
+  border-left: 4px solid #e53e3e;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+#error p {
+  margin: 0;
+  color: #c53030;
+  font-weight: 500;
 }

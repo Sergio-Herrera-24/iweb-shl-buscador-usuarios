@@ -4,10 +4,12 @@ import Header from './Header'
 import {mock1} from './constants/users.js'
 import CONFIG from './config/config.js'
 import Resultados from './Resultados.jsx'
+import Formulario from './Formulario.jsx'
 
 function App() {
   const [textoinput, setTexto] = useState("")
   const [resultado, setResultado] = useState(null)
+  const [errordescarga, setError] = useState(null)
 
   async function manejarBuscar(input){
     if(!CONFIG.use_server){
@@ -26,7 +28,9 @@ function App() {
       const data = await response.json()
       console.log(data)
       setResultado(data.users)
+      setError(null)
     }catch(e){
+      setError(`"Error": ${e}`)
       console.log("Error: ", e)
     }
   }
@@ -35,10 +39,10 @@ function App() {
     <div id="main">
       <Header />
       <h2 id="buscador">Buscador de usuarios</h2>
-      <input id="query" type="text" value={textoinput} onChange={(e) => setTexto(e.target.value)}></input>
-      <button id="botonsearch" onClick={() => manejarBuscar("Buscar")}>Buscar</button>
+      <Formulario texto={textoinput} repintarTexto={setTexto} buscar={manejarBuscar} />
       <button id="botonall" onClick={() => manejarBuscar("Ver Todos")}>Ver Todos</button>
-      {resultado ? <Resultados resultado={resultado} /> : null}
+      {resultado && !errordescarga ? <Resultados resultado={resultado} /> : null}
+      {errordescarga ? <div id="error"><p>{errordescarga}</p></div> : null}
     </div>
   )
 }
